@@ -1,37 +1,32 @@
 package com.sda.myapp.contrlollers;
 
-import com.sda.myapp.contrlollers.jsons.Person;
+import com.sda.myapp.contrlollers.jsons.PersonJson;
+import com.sda.myapp.services.PersonService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/person")
+@RequiredArgsConstructor // genereaza constructorul
 public class PersonController {
+
+    final private PersonService personService;
     @GetMapping
-    public List<Person> findAll() {
-        Person person1 = new Person();
-        person1.setCnp(1);
-        person1.setName("ion");
-        Person person2 = new Person();
-        person2.setCnp(2);
-        person2.setName("marian");
-
-
-        return List.of(person1, person2);
+    public List<PersonJson> findAll() {
+        return personService.findAll();
     }
-
     @GetMapping("/{id}")
-    public Person findById(@PathVariable("id") Integer id) {
-        Person person = new Person();
-        person.setCnp(id);
-        person.setName("persoana cu id");
-        return person;
+    public PersonJson findById(@PathVariable("id") Integer id) {
+        return personService.findById(id);
     }
-
-
     @PutMapping
-    public void save(@RequestBody Person person) {
-        System.out.println("save this " + person);
+    public void save(@RequestBody PersonJson personJson) {
+        personService.save(personJson);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable("id") Integer id) {
+        personService.deleteById(id);
     }
 }
