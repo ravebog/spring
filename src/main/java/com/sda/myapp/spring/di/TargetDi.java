@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 public class TargetDi {
 
     @Autowired
-
     Xxx xxx;
 
     @Autowired
