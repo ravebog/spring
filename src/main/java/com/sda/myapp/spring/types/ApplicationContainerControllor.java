@@ -21,9 +21,18 @@ public class ApplicationContainerControllor {
         System.out.println(applicationContext);
         System.out.println(applicationContext.getBean(MySingleton.class));
         System.out.println(applicationContext.getBean(MyPrototype.class));
-        System.out.println(applicationContext.getBean(TargetDi.class));
+        TargetDi bean = applicationContext.getBean(TargetDi.class);
+        System.out.println(bean);
+
         System.out.println(applicationContext.getBean(TargetDIFactory.class));
         System.out.println(applicationContext.getBean(Product.class));
+        System.out.println("============================");
+
+
+        System.out.println("============================");
+
+
+        applicationContext.getBean(MySingleton.class).service();
 
     }
 

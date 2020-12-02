@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<tbody>
+<table>
+    <tr th:each="person: ${persons}">
+        <td th:text="${person.cnp}"/>
+        <td th:text="${person.name}"/>
+    </tr>
+</table>
+</tbody>
+</body>
+</html>
