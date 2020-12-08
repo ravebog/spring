@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
@@ -30,6 +31,10 @@ public class PersonService {
 
     public void deleteById(Integer id){
         personRepository.deleteById(id);
+    }
+
+    public void audit(HttpServletRequest request){
+
     }
 
 
